@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   //const { Body, From, MediaUrl0 } = req.body;
   //const message = { body: Body, from: From, img: MediaUrl0 }
-  const{img} = req.body
-  imagelink = readFromImage(img)
+  const{MediaUrl0} = req.body
+  imagelink = MediaUrl0
   res.send(`
     <Response>
       <Message>Thanks for texting!</Message>
