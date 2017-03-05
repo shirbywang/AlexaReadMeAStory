@@ -31,10 +31,12 @@ app.listen(PORT, () => {
 
 
 function readFromImage(imageFile){
-
-	axios.post('https://www.wolframcloud.com/objects/8f903053-9f4c-4200-8c8b-ee40d88765d3/?name='+imageFile)
+	const url = 'https://www.wolframcloud.com/objects/902ee9ce-e012-44b7-b1c5-444f56fd0d95/?name='+imageFile;
+	console.log(url);
+	axios.post(url)
 		.then(function (response) {
-			console.log(response);
+			console.log("HERE");
+			console.log(response.data);
 		})
 		.catch(function (error) {
 			console.log(error);
