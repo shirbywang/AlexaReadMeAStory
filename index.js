@@ -1,16 +1,18 @@
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
+const googleAPIs = require('googleapis')
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
   res.status(200).send('Hello World!');
 });
 
 app.post('/', (req, res) => {
-  const { Body, From, MediaUrl0 } = req.body;
-  const message = { body: Body, from: From, img: MediaUrl0 }
+  //const { Body, From, MediaUrl0 } = req.body;
+  //const message = { body: Body, from: From, img: MediaUrl0 }
   res.send(`
     <Response>
       <Message>Thanks for texting!</Message>
