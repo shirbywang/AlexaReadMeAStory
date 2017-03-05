@@ -11,7 +11,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-  res.send("DNE");
+  if (imagelink==""){
+    res.send("DNE");
+  }
   const testImage = "http://i.imgur.com/y8ha1ld.jpg";
 	const url = 'https://www.wolframcloud.com/objects/902ee9ce-e012-44b7-b1c5-444f56fd0d95/?name='+imagelink;
 	axios.post(url)
@@ -26,8 +28,8 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   //const { Body, From, MediaUrl0 } = req.body;
   //const message = { body: Body, from: From, img: MediaUrl0 }
-  const{MediaUrl0} = req.body
-  imagelink = MediaUrl0
+  const{MediaUrl0} = req.body;
+  imagelink = MediaUrl0;
   res.send(`
     <Response>
       <Message>Thanks for texting!</Message>
