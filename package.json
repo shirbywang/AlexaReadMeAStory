@@ -22,9 +22,11 @@
   },
   "homepage": "https://github.com/shirbywang/AlexaReadMeAStory#readme",
   "dependencies": {
+    "axios": "^0.15.3",
     "body-parser": "^1.17.0",
     "express": "^4.15.0",
     "googleapis": "^17.1.0",
-    "http": "0.0.0"
+    "http": "0.0.0",
+    "jquery": "^3.1.1"
   }
 }
