@@ -4,7 +4,21 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.get('/', (req, res) => {
+  res.status(200).send('Hello World!');
+});
 
-app.listen(3000);
+app.post('/', (req, res) => {
+  const { Body, From, MediaUrl0 } = req.body;
+  const message = { body: Body, from: From, img: MediaUrl0 }
+  res.send(`
+    <Response>
+      <Message>Thanks for texting!</Message>
+    </Response>
+  `);
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log('It works!');
+});
